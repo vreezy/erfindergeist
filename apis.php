@@ -4,9 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 // CUSTOM APIS
-// https://egj.vreezy.de/wp-json/erfindergeist/v1/gcalendar
+// /wp-json/erfindergeist/v1/gcalendar
 add_action('rest_api_init', function () {
    register_rest_route('erfindergeist/v1', '/gcalendar', array(
       'methods'  => 'GET',
@@ -14,7 +13,7 @@ add_action('rest_api_init', function () {
    ));
 });
 
-https://egj.vreezy.de/wp-json/erfindergeist/v1/discord
+// /wp-json/erfindergeist/v1/discord
 add_action('rest_api_init', function () {
    register_rest_route('erfindergeist/v1', '/discord', array(
       'methods'  => 'GET',
@@ -37,11 +36,8 @@ function gcalendar($request)
    
    $currentDate = $dateTime->format(DateTimeInterface::RFC3339);
    
-   // google api dislike +00:00. replace with Z
+   // rfc3339 google api dislike +00:00. replace with Z
    $currentDate = str_replace("+00:00", "Z", $currentDate);
-
-   // $gCalendarId = "07ioi5n94ai52i862agbh13tgc%40group.calendar.google.com";
-   // $gCalendarApiKey = ""; // AIzaSyBUtiIjAkRXpKa6Eat5triW8x3W-QDNNxU
    
    $gCalendarApiKey = get_option( $apikey_opt_name );
    $gCalendarId = get_option( $google_calendar_id_opt_name );
