@@ -1,8 +1,17 @@
+.egj-discord-privacy-container {
+   display: block;
+   position: fixed;
+   right: 0px;
+   /* bottom: 300px;  */
+   top: 300px;
+   padding: 5px;  
+}
+
 .egj-discord-iframe-container {
    display: none;
    position: fixed;
    right: 0px;
-   bottom: 160px;
+   top: 300px;
    padding: 5px;
 }
 
@@ -52,7 +61,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-   .egj-discord-container {
+   .egj-discord-bubble-container {
       cursor: pointer;
       position: fixed;
 
